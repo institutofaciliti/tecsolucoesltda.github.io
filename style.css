@@ -1,68 +1,41 @@
-/* Estilos gerais */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
-    color: #333;
+/* CARROSSEL */
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 20px auto;
+    border-radius: 12px;
 }
 
-/* Cabeçalho */
-header {
-    background: #0a75c2;
+.carousel {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    max-width: 100%;
+    flex-shrink: 0;
+    border-radius: 12px;
+}
+
+/* Botões */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    border: none;
     color: white;
-    text-align: center;
-    padding: 40px 20px;
+    padding: 12px 16px;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 50%;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 32px;
-}
+.prev { left: 10px; }
+.next { right: 10px; }
 
-header p {
-    margin-top: 10px;
-    font-size: 18px;
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 20px;
-    background: #ffffff;
-    color: #0a75c2;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-/* Seções */
-.section {
-    padding: 40px 20px;
-    background: white;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.section h2 {
-    margin-bottom: 20px;
-    color: #0a75c2;
-}
-
-/* Lista de serviços */
-.service {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-left: 5px solid #0a75c2;
-    background: #eef7ff;
-    border-radius: 5px;
-}
-
-/* Rodapé */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #0a75c2;
-    color: white;
-    margin-top: 30px;
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.7);
 }
