@@ -1,286 +1,129 @@
-      <!DOCTYPE html>
+       <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TEC Soluções LTDA - Ar-condicionado</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEC Soluções LTDA - Ar-condicionado</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <style>
+        * { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f7f7;
-      color: #222;
-    }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f0f2f5;
+        }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+        header {
+            background: #0a3a8d;
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+        header img {
+            width: 90px;
+        }
 
-    /* CABEÇALHO */
+        h1 { margin: 0; font-size: 22px; }
+        h2 { color: #0a3a8d; }
 
-    header {
-      background: #0a3a8d;
-      color: #fff;
-      padding: 10px 16px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+        .container { padding: 20px; }
 
-    .topbar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+        .whats-btn {
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            display: block;
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    .logo-box {
-      background: #fff;
-      border-radius: 6px;
-      padding: 6px 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      color: #0a3a8d;
-      font-size: 13px;
-      min-width: 80px;
-      text-align: center;
-    }
+        .service-box {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
+        .service-box h3 {
+            margin: 0 0 10px 0;
+            color: #0a3a8d;
+        }
 
-    .brand-text h1 {
-      margin: 0;
-      font-size: 18px;
-      font-weight: 700;
-    }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
 
-    .brand-text span {
-      font-size: 12px;
-      opacity: 0.9;
-    }
-
-    .whats-header {
-      margin-left: auto;
-      font-size: 11px;
-      text-align: right;
-    }
-
-    .whats-header strong {
-      display: block;
-      font-size: 12px;
-    }
-
-    /* BOTÃO WHATS FIXO NO TOPO DA PÁGINA */
-
-    .btn-whats-header {
-      margin-top: 4px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #25d366;
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: bold;
-    }
-
-    .btn-whats-header span.icon {
-      font-size: 15px;
-    }
-
-    /* CONTEÚDO GERAL */
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 16px;
-    }
-
-    h2.section-title {
-      font-size: 20px;
-      margin: 0 0 8px 0;
-      color: #0a3a8d;
-    }
-
-    p.section-subtitle {
-      margin: 0 0 16px 0;
-      font-size: 14px;
-      color: #555;
-    }
-
-    /* SESSÃO FALE CONOSCO */
-
-    .section {
-      margin-bottom: 24px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      margin-bottom: 16px;
-    }
-
-    .btn-whats-big {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: #25d366;
-      color: #fff;
-      padding: 14px;
-      border-radius: 999px;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .btn-whats-big span.icon {
-      font-size: 22px;
-    }
-
-    /* SERVIÇOS */
-
-    .services-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .service-card h3 {
-      margin: 0 0 4px 0;
-      font-size: 16px;
-      color: #0a3a8d;
-    }
-
-    .service-meta {
-      font-size: 12px;
-      color: #777;
-      margin-bottom: 6px;
-    }
-
-    .service-card p {
-      margin: 0;
-      font-size: 13px;
-      color: #444;
-    }
-
-    /* GALERIA ANTES / DURANTE / DEPOIS */
-
-    .gallery-section {
-      background: #eef3ff;
-      padding: 16px;
-      border-radius: 12px;
-    }
-
-    .gallery-grid {
-      margin-top: 12px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-    }
-
-    .gallery-item {
-      background: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      position: relative;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-    }
-
-    .gallery-label {
-      position: absolute;
-      left: 8px;
-      top: 8px;
-      background: rgba(10,58,141,0.95);
-      color: #fff;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .gallery-caption {
-      padding: 8px 10px 10px 10px;
-      font-size: 12px;
-      color: #444;
-    }
-
-    /* RODAPÉ */
-
-    footer {
-      background: #0a3a8d;
-      color: #fff;
-      text-align: center;
-      padding: 12px;
-      font-size: 12px;
-      margin-top: 20px;
-    }
-
-    footer a {
-      color: #fff;
-      text-decoration: underline;
-    }
-
-    @media (min-width: 768px) {
-      .brand-text h1 {
-        font-size: 22px;
-      }
-      .brand-text span {
-        font-size: 13px;
-      }
-      .whats-header {
-        font-size: 12px;
-      }
-    }
-  </style>
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- CABEÇALHO -->
-  <header>
-    <div class="topbar">
-      <div class="logo-box">
-        TEC<br>SOLUÇÕES
-      </div>
-
-      <div class="brand-text">
+<header>
+    <img src="https://i.imgur.com/YoQvE5b.png">
+    <div>
         <h1>TEC Soluções LTDA</h1>
         <span>Instalação • Manutenção • Higienização de Ar-condicionado</span>
-      </div>
+    </div>
+</header>
 
-      <div class="whats-header">
-        <span>Atendimento imediato</span>
-        <strong>(19) 99595-5105</strong>
-        <a class="btn-whats-header" href="https://wa.me/5519995955105" target="_blank" rel="noopener noreferrer">
-          <span class="icon">💬</
+<div class="container">
+
+    <h2>Fale Conosco</h2>
+    <a class="whats-btn" href="https://wa.me/5519995955105" target="_blank">
+        💬 WhatsApp: (19) 99595-5105
+    </a>
+
+    <h2>Serviços</h2>
+
+    <div class="service-box">
+        <h3>Instalação de Ar-Condicionado</h3>
+        Split • Inverter • 9.000 a 60.000 BTUs  
+        <br><br>
+        Instalação profissional com normas técnicas, melhor posicionamento e teste completo.
+    </div>
+
+    <div class="service-box">
+        <h3>Manutenção preventiva e corretiva</h3>
+        Evita vazamentos, mau cheiro, barulho e mantém o consumo de energia baixo.
+    </div>
+
+    <div class="service-box">
+        <h3>Higienização completa</h3>
+        Lavagem de filtros, serpentina, turbina e dreno.
+        Mais saúde e qualidade do ar.
+    </div>
+
+    <h2>Fotos dos Serviços</h2>
+
+    <div class="gallery">
+        <img src="IMG-20251029-WA0141.jpeg">
+        <img src="IMG-20251029-WA0149.jpeg">
+        <img src="IMG-20251113-WA0019.jpeg">
+        <img src="IMG-20251113-WA0020.jpeg">
+        <img src="IMG-20251113-WA0023.jpeg">
+    </div>
+
+</div>
+
+</body>
+</html>
+    
       
-    
 
     
-    
+      
