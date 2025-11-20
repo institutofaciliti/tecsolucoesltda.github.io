@@ -1,188 +1,728 @@
-       <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEC Soluções LTDA - Ar-condicionado</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TEC Soluções LTDA | Ar-condicionado</title>
+  <meta name="description" content="TEC Soluções LTDA - Instalação, manutenção, higienização e PMOC de ar-condicionado para residências, empresas, comércios e hospitais." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        * { box-sizing: border-box; }
+  <style>
+    :root {
+      --bg-dark: #020817;
+      --bg-card: #041121;
+      --bg-header: linear-gradient(90deg, #0166ff, #00a2ff);
+      --accent-gold: #ffcc33;
+      --accent-blue: #0ea5e9;
+      --text-light: #f9fafb;
+      --text-soft: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --radius-lg: 22px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+    }
 
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f0f2f5;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        header {
-            background: #0a3a8d;
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #02152c 0, #020817 40%, #020617 100%);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
 
-        header img {
-            width: 90px;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        h1 { margin: 0; font-size: 22px; }
-        h2 { color: #0a3a8d; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-        .container { padding: 20px; }
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
 
-        .whats-btn {
-            background: #25D366;
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            display: block;
-            text-align: center;
-            font-size: 20px;
-            margin-bottom: 25px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    /* HEADER */
 
-        .service-box {
-            background: white;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+    header {
+      background: var(--bg-header);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
 
-        .service-box h3 {
-            margin: 0 0 10px 0;
-            color: #0a3a8d;
-        }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      gap: 16px;
+    }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        .gallery img {
-            width: 100%;
-            border-radius: 10px;
-        }
-    </style>
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: radial-gradient(circle at top, #ffffff 0, #d1d5db 30%, #111827 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+      flex-shrink: 0;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(231, 245, 255, 0.9);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: radial-gradient(circle at left, #fff, #ffe08a);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 32px 0 24px;
+    }
+
+    .hero-card {
+      margin-top: 8px;
+      border-radius: 32px;
+      padding: 26px 22px 26px;
+      background: radial-gradient(circle at top left, #1d4ed8 0, #020617 55%, #000 100%);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(248, 250, 252, 0.15);
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+    }
+
+    .hero-chip span {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #4ade80, #22c55e);
+      box-shadow: 0 0 12px rgba(74, 222, 128, 0.8);
+    }
+
+    .hero-title {
+      font-size: 26px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .hero-title strong {
+      color: var(--accent-gold);
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-soft);
+      max-width: 540px;
+      margin-bottom: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary, .btn-outline {
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at top left, #facc15, #eab308, #a16207);
+      color: #111827;
+      box-shadow: 0 10px 25px rgba(234, 179, 8, 0.48);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 35px rgba(234, 179, 8, 0.65);
+    }
+
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.4);
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--text-soft);
+    }
+
+    .btn-outline:hover {
+      background: rgba(15, 23, 42, 0.8);
+      border-color: #e5e7eb;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-badges span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-badges span::before {
+      content: "✔";
+      font-size: 11px;
+      color: #4ade80;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 10px 0 26px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #081228 0, #020617 65%);
+      border-radius: var(--radius-lg);
+      padding: 18px 16px 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      pointer-events: none;
+      opacity: 0.85;
+    }
+
+    .card-title {
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: var(--accent-gold);
+    }
+
+    .card-text {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .card-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .card-list {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--text-soft);
+      padding-left: 18px;
+    }
+
+    .card-list li {
+      margin-bottom: 4px;
+    }
+
+    /* CONTACT */
+
+    .contact-card {
+      background: radial-gradient(circle at top left, #0b1120 0, #020617 70%);
+      border-radius: 24px;
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      font-size: 14px;
+    }
+
+    .contact-row {
+      margin-bottom: 6px;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .contact-value {
+      font-size: 14px;
+      color: var(--text-soft);
+    }
+
+    footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      padding: 16px 0 20px;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* WHATSAPP FLOAT */
+
+    .whats-float {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 60;
+    }
+
+    .whats-button {
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 15px 35px rgba(22, 163, 74, 0.75);
+      border: 2px solid #bbf7d0;
+      animation: pulse 2s infinite;
+    }
+
+    .whats-button span {
+      font-size: 28px;
+      color: #ecfdf5;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.75);
+      }
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 14px rgba(34, 197, 94, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+      }
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 640px) {
+      .brand-title {
+        font-size: 16px;
+        letter-spacing: 0.12em;
+      }
+
+      .brand-subtitle {
+        font-size: 10px;
+        letter-spacing: 0.22em;
+      }
+
+      .nav-links {
+        display: none; /* simplifica no mobile; podemos criar menu depois */
+      }
+
+      .hero-card {
+        padding: 22px 18px 20px;
+        border-radius: 26px;
+      }
+
+      .hero-title {
+        font-size: 22px;
+      }
+
+      .section-title {
+        font-size: 18px;
+      }
+
+      .card {
+        padding: 16px 14px 14px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header> 
-   <img src="IMG-20251102-WA0003.jpg" style="width:90px;"> 
-        <h1>TEC Soluções LTDA</h1>
-        <span>Instalação • Manutenção • Higienização de Ar-condicionado</span>
-    </div>
-</header>
-
-<div class="container">
-
-    <h2>Fale Conosco</h2>
-    <a class="whats-btn" href="https://wa.me/5519995955105" target="_blank">
-        💬 WhatsApp: (19) 99595-5105
+  <!-- WHATSAPP FLOAT -->
+  <div class="whats-float">
+    <a class="whats-button" href="https://wa.me/5519995955105" target="_blank" aria-label="Falar com a TEC Soluções no WhatsApp">
+      <span>🟢</span>
     </a>
-<!-- Mais fotos de serviços -->
-      <div class="before-after">
+  </div>
 
-        <h2>Antes, durante e depois da higienização</h2>
-
-        <!-- ANTES -->
-        <h3>Antes da higienização</h3>
-        <div class="gallery">
-          <img src="IMG-20250825-WA0100.jpg" alt="Grelha suja antes da limpeza">
-          <img src="IMG-20250825-WA0031.jpg" alt="Grelhas sujas antes da limpeza">
-          <img src="IMG-20250730-WA0189.jpg" alt="Frente do ar-condicionado suja">
-          <img src="IMG-20250730-WA0185.jpg" alt="Filtros do ar-condicionado sujos">
-          <img src="IMG-20250730-WA0173.jpg" alt="Tampa do ar antes da limpeza">
-          <img src="IMG-20250730-WA0179.jpg" alt="Peça do ar antes da higienização">
-          <img src="IMG-20250730-WA0169.jpg" alt="Filtros sujos antes da higienização">
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-logo">
+          <!-- Se o arquivo logo-tec.png existir no repositório, ele aparece aqui -->
+          <img src="logo-tec.png" alt="Logo TEC Soluções LTDA" onerror="this.style.display='none';">
         </div>
-        <!-- DURANTE -->
-        <h3>Durante a higienização</h3>
-        <div class="gallery">
-          <img src="IMG-20250822-WA0020.jpg" alt="Lavagem da serpentina com jato de água">
-          <img src="IMG-20250822-WA0013.jpg" alt="Evaporadora aberta durante a higienização">
-          <img src="IMG-20250822-WA0022.jpg" alt="Lavagem com capa de higienização">
-          <img src="IMG-20250804-WA0091.jpg" alt="Aplicação de produto na serpentina">
-          <img src="IMG-20250804-WA0087.jpg" alt="Água escorrendo durante a limpeza">
-          <img src="IMG-20250804-WA0082.jpg" alt="Jato de água na serpentina">
-          <img src="IMG-20250730-WA0181.jpg" alt="Lavagem de peça do ar-condicionado">
-          <img src="IMG-20250730-WA0183.jpg" alt="Peça sendo lavada com jato de água">
+        <div class="brand-text">
+          <div class="brand-title">TEC SOLUÇÕES LTDA</div>
+          <div class="brand-subtitle">AR&nbsp;•&nbsp;CONDICIONADO&nbsp;•&nbsp;PMOC</div>
         </div>
-        <!-- DEPOIS -->
-        <h3>Depois da higienização</h3>
-        <div class="gallery">
-          <img src="IMG-20250825-WA0114.jpg" alt="Insuflamento limpo após a higienização">
-          <img src="IMG-20250825-WA0048.jpg" alt="Grelhas limpas alinhadas">
-          <img src="IMG-20250804-WA0108.jpg" alt="Evaporadora limpa após a higienização">
-          <img src="IMG-20250730-WA0171.jpg" alt="Filtros limpos após a lavagem">
-          <img src="IMG-20250828-WA0013.jpg" alt="Resultado final da higienização">
-          <img src="IMG-20250822-WA0013.jpg" alt="Equipamento limpo montado">
-        
-        </div> <video controls style="width:100%; border-radius:12px;">
-  <source src="VID-20251116-WA0000.mp4" type="video/mp4">
-  Seu navegador não suporta reprodução de vídeo.
-        </video>
-            <!-- NOVAS FOTOS ADICIONADAS - SERVIÇOS REALIZADOS -->
-    <h3>Novas fotos dos serviços realizados</h3>
+      </div>
 
-    <!-- ANTES -->
-    <h4>Antes da higienização</h4>
-    <div class="gallery">
-      <img src="IMG-20251022-WA0025.jpg" alt="Evaporadora suja antes da limpeza">
-      <img src="IMG-20251021-WA0013.jpg" alt="Ventilador e carenagem sujos">
-      <img src="IMG-20250902-WA0039.jpg" alt="Condensadora suja antes da higienização">
+      <nav class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#segmentos">Segmentos</a>
+        <a href="#contato">Contato</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- DURANTE -->
-    <h4>Durante a higienização</h4>
-    <div class="gallery">
-      <img src="IMG-20251023-WA0000.jpg" alt="Aplicação de produto na evaporadora">
-      <img src="IMG-20251023-WA0004.jpg" alt="Lavagem da evaporadora com lavadora">
-      <img src="IMG-20251023-WA0008.jpg" alt="Lavagem da condensadora">
-      <img src="IMG-20251008-WA0026.jpg" alt="Aplicação de detergente na serpentina">
-      <img src="IMG-20250902-WA0054.jpg" alt="Jato de água na condensadora">
-      <img src="IMG-20250902-WA0058.jpg" alt="Lavagem da serpentina externa">
-    </div>
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-chip">
+            <span></span>
+            TEC Soluções LTDA • Versão Luxo
+          </div>
+          <h1 class="hero-title">
+            Climatização profissional<br />
+            para <strong>residências e empresas</strong>.
+          </h1>
+          <p class="hero-subtitle">
+            Instalação, manutenção, higienização e PMOC de sistemas de ar-condicionado,
+            com equipe qualificada, segurança, nota fiscal e garantia.
+          </p>
 
-    <!-- DEPOIS -->
-    <h4>Depois da higienização</h4>
-    <div class="gallery">
-      <img src="IMG-20251008-WA0027.jpg" alt="Condensadora limpa após higienização">
-      <img src="IMG-20250827-WA0032.jpg" alt="Equipamento limpo e remontado">
-      <img src="IMG-20250827-WA0046.jpg" alt="Detalhe da serpentina limpa">
-      <img src="IMG-20250801-WA0049.jpg" alt="Resultado final da condensadora">
-      <img src="IMG-20250801-WA0053.jpg" alt="Conjunto externo limpo e organizado">
-    </div>
-    <div class="service-box">
-        <h3>Instalação de Ar-Condicionado</h3>
-        Split • Inverter • 9.000 a 60.000 BTUs  
-        <br><br>
-        Instalação profissional com normas técnicas, melhor posicionamento e teste completo.
-    </div>
+          <div class="hero-actions">
+            <a href="https://wa.me/5519995955105?text=Olá,%20gostaria%20de%20um%20orçamento%20de%20ar-condicionado" class="btn-primary">
+              Solicitar orçamento pelo WhatsApp
+            </a>
+            <a href="#servicos" class="btn-outline">
+              Ver serviços em destaque
+            </a>
+          </div>
 
-    <div class="service-box">
-        <h3>Manutenção preventiva e corretiva</h3>
-        Evita vazamentos, mau cheiro, barulho e mantém o consumo de energia baixo.
-    </div>
+          <div class="hero-badges">
+            <span>Técnicos cadastrados no CREA</span>
+            <span>Atendimento residencial, comercial e hospitalar</span>
+            <span>Projetos com PMOC e documentação</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="service-box">
-        <h3>Higienização completa</h3>
-        Lavagem de filtros, serpentina, turbina e dreno.
-        Mais saúde e qualidade do ar.
-    </<!-- Botão Instagram -->
-<p style="text-align: center; margin-top: 20px;">
-    <a href="https://www.instagram.com/climatizacao1266" target="_blank" 
-       style="background:#E1306C; color:white; padding:12px 20px; border-radius:8px; text-decoration:none; font-size:18px; font-weight:bold;">
-        📸 Siga no Instagram
-    
+    <!-- SOBRE RESUMIDO -->
+    <section id="sobre">
+      <div class="container">
+        <h2 class="section-title">Sobre a TEC Soluções</h2>
+        <p class="section-subtitle">
+          Estrutura preparada para atender instalações novas, retrofits e contratos de manutenção.
+        </p>
+        <div class="card">
+          <p class="card-text">
+            A <strong>TEC Soluções LTDA</strong> atua com foco em qualidade, segurança e
+            performance dos sistemas de climatização. Entregamos serviços completos,
+            desde o dimensionamento até a manutenção contínua, seguindo normas técnicas
+            e exigências de PMOC para ambientes críticos.
+          </p>
+        </div>
+      </div>
+    </section>
 
-      
+    <!-- SERVIÇOS -->
+    <section id="servicos">
+      <div class="container">
+        <h2 class="section-title">Serviços em Destaque</h2>
+        <p class="section-subtitle">
+          Tudo o que você precisa para o ar-condicionado funcionar com máximo desempenho.
+        </p>
 
-    
-      
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="card-tag">Instalação</div>
+            <h3 class="card-title">Instalação de Ar-condicionado</h3>
+            <p class="card-text">
+              Instalação profissional de aparelhos Split e Inverter, de 9.000 a 60.000 BTUs,
+              com melhor posicionamento, cálculo de carga térmica e garantia.
+            </p>
+            <ul class="card-list">
+              <li>Residencial e comercial</li>
+              <li>Infraestrutura completa (tubulação, dreno, elétrica)</li>
+              <li>Teste de estanqueidade e vácuo</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Manutenção</div>
+            <h3 class="card-title">Manutenção Preventiva e Corretiva</h3>
+            <p class="card-text">
+              Planos de manutenção para evitar paradas, reduzir consumo de energia e aumentar
+              a vida útil dos equipamentos.
+            </p>
+            <ul class="card-list">
+              <li>Check-up completo dos sistemas</li>
+              <li>Troca de componentes e correções</li>
+              <li>Relatórios técnicos para gestão</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Higienização</div>
+            <h3 class="card-title">Higienização Profissional</h3>
+            <p class="card-text">
+              Limpeza profunda de evaporadoras e condensadoras, combatendo fungos, ácaros e odores,
+              garantindo melhor qualidade do ar.
+            </p>
+            <ul class="card-list">
+              <li>Produtos específicos para climatização</li>
+              <li>Cuidados com a saúde dos usuários</li>
+              <li>Ideal para clínicas, consultórios e residências</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="grid grid-2" style="margin-top: 14px;">
+          <article class="card">
+            <div class="card-tag">PMOC</div>
+            <h3 class="card-title">PMOC e Documentação Técnica</h3>
+            <p class="card-text">
+              Elaboração e execução de <strong>Planos de Manutenção, Operação e Controle</strong>,
+              conforme legislações vigentes.
+            </p>
+            <ul class="card-list">
+              <li>Planos personalizados por ambiente</li>
+              <li>Laudos e relatórios para fiscalização</li>
+              <li>Atendimento a empresas, condomínios e hospitais</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Projetos</div>
+            <h3 class="card-title">Projetos e Adequações</h3>
+            <p class="card-text">
+              Análise de sistemas existentes, sugestões de melhoria e adequações para
+              maior eficiência energética.
+            </p>
+            <ul class="card-list">
+              <li>Estudos de viabilidade</li>
+              <li>Substituição de equipamentos antigos</li>
+              <li>Ambientes de alta ocupação</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEGMENTOS ATENDIDOS -->
+    <section id="segmentos">
+      <div class="container">
+        <h2 class="section-title">Segmentos Atendidos</h2>
+        <p class="section-subtitle">
+          Soluções de climatização sob medida para diferentes tipos de ambiente.
+        </p>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <div class="card-tag">Residencial</div>
+            <h3 class="card-title">Residências e Apartamentos</h3>
+            <p class="card-text">
+              Instalação e manutenção de sistemas de ar-condicionado para garantir conforto
+              térmico em quartos, salas e áreas de convívio.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Comercial</div>
+            <h3 class="card-title">Lojas, Escritórios e Comércio</h3>
+            <p class="card-text">
+              Climatização para espaços de atendimento ao público, escritórios e áreas
+              administrativas, priorizando conforto e produtividade.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Condomínios</div>
+            <h3 class="card-title">Condomínios e Áreas Comuns</h3>
+            <p class="card-text">
+              Atendimento para portarias, halls, salões de festa, academias e áreas de uso
+              coletivo, com contratos de manutenção.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Saúde</div>
+            <h3 class="card-title">Clínicas, Consultórios e Hospitais</h3>
+            <p class="card-text">
+              Serviços com foco em qualidade do ar e conformidade com normas para ambientes
+              de saúde e alta circulação de pessoas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato">
+      <div class="container">
+        <h2 class="section-title">Contato e Orçamentos</h2>
+        <p class="section-subtitle">
+          Fale com a TEC Soluções e receba um atendimento personalizado para o seu projeto.
+        </p>
+
+        <div class="contact-card">
+          <div class="contact-row">
+            <div class="contact-label">WhatsApp</div>
+            <div class="contact-value">
+              <a href="https://wa.me/5519995955105" target="_blank">
+                (19) 99595-5105
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-label">E-mail</div>
+            <div class="contact-value">
+              tecsolucoes@exemplo.com.br
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-label">Atendimento</div>
+            <div class="contact-value">
+              Região de Americana / São João da Boa Vista e cidades próximas.
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-label">Diferenciais</div>
+            <div class="contact-value">
+              Técnicos qualificados • Atendimento com nota e garantia • Projetos com PMOC e documentação.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    TEC Soluções LTDA • Ar-condicionado • Instalação • Manutenção • Higienização • PMOC<br />
+    © <span id="ano"></span> – Todos os direitos reservados.
+  </footer>
+
+  <script>
+    // Atualiza o ano no rodapé
+    document.getElementById("ano").textContent = new Date().getFullYear();
+  </script>
+</body>
+       </html>
